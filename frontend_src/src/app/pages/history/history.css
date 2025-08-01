@@ -1,0 +1,44 @@
+.personal-container {
+  background-color: #e9eaee;
+  height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.nav-button {
+  background-color: #1c1c1c;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.transactions-box {
+  background-color: #2d2d2d;
+  padding: 2rem;
+  border-radius: 25px;
+  height: 500px;
+  overflow-y: auto;
+}
+
+.transaction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.transaction {
+  background-color: #e9eaee;
+  padding: 1rem;
+  border-radius: 5px;
+  color: #333;
+  font-family: monospace;
+}
