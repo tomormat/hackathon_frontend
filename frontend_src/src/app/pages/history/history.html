@@ -1,18 +1,25 @@
-
 <div class="personal-container">
   <div class="top-bar">
     <h1>Transaction History </h1>
-    <button class="nav-button"  routerLink="/">
+    <button class="nav-button" routerLink="/">
       <i class="fa fa-home"></i> Home</button>
   </div>
 
   <div class="transactions-box">
     <div class="transaction-list">
-      <div class="transaction">TRAN ID STOCK DATE VALUE_AT_Date value_change%</div>
-      <div class="transaction">TRAN ID STOCK DATE VALUE_AT_Date value_change%</div>
-      <div class="transaction">TRAN ID STOCK DATE VALUE_AT_Date value_change%</div>
-      <div class="transaction">TRAN ID STOCK DATE VALUE_AT_Date value_change%</div>
-      <!-- Add more if needed -->
+      <div class="transaction header">
+        TRAN ID&nbsp;&nbsp;STOCK&nbsp;&nbsp;DATE&nbsp;&nbsp;VALUE_AT_Date&nbsp;&nbsp;value_change%
+      </div>
+      <div
+        class="transaction"
+        *ngFor="let t of transactions"
+      >
+        {{ t.id }}&nbsp;&nbsp;
+        {{ t.stock.name }}&nbsp;&nbsp;
+        {{ t.date | date:'yyyy-MM-dd HH:mm' }}&nbsp;&nbsp;
+        {{ t.valueAtDate | number:'1.2-2' }}&nbsp;&nbsp;
+        {{ t.valueChangePercent | number:'1.2-2' }}%
+      </div>
     </div>
   </div>
 </div>

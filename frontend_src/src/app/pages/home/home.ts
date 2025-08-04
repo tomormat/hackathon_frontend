@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { StockService } from '../../services/stock.service';
+import { StockService } from '../../services/stock.Mock.service';
 import { FormsModule } from '@angular/forms'; 
 
 

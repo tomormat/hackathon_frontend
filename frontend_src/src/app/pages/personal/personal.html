@@ -1,4 +1,3 @@
-
 <div class="stock-container">
   <!-- Top Navigation -->
   <div class="nav-bar">
@@ -40,10 +39,17 @@
       <div class="buy-sell">
         <div class="action-buttons">
           <button class="sell">Sell</button>
-          <input type="text" placeholder="Amount" />
+          <input
+            type="number"
+            min="1"
+            [(ngModel)]="buyAmount"
+            placeholder="Amount"
+          />
           <button class="buy">Buy</button>
         </div>
-        <button class="total-button">Total</button>
+        <button class="total-button" disabled>
+          Total: {{ totalPrice | number:'1.2-2' }}
+        </button>
       </div>
     </div>
   </div>

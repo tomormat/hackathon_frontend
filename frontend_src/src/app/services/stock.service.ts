@@ -1,24 +1,32 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Stock, Transaction } from '../interfaces/stock';
+import { environment } from '../../environments/environment';
 
 @Injectable({
-  providedIn: 'root' // make it globally available
+  providedIn: 'root'
 })
 export class StockService {
-  private mockStocksUrl = 'assets/mock-shares.json'; // tell it where the database is 
-  private stocks: any[] = [];
+  private apiUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient) {
-    this.http.get<any[]>(this.mockStocksUrl).subscribe(data => {
-        this.stocks = data;
-      });
+  constructor(private http: HttpClient) {}
+
+  // 1. Get a stock by its ID
+  getStockById(id: number): Observable<Stock> {
+    return this.http.get<Stock>(`${this.apiUrl}/stocks/${id}`);
   }
 
-  getStocks(): Observable<any[]> {
-    return this.http.get<any[]>(this.mockStocksUrl);
+  // 2. Post a transaction (buy stock)
+  buyStock(stock: Stock, amount: number): Observable<Transaction> {
+    return this.http.post<Transaction>(`${this.apiUrl}/transactions`, {
+      stock,
+      amount
+    });
   }
-  getStockById(id: number): any {
-    return this.stocks.find(stock => stock.id === id);
+
+  // 3. Get all transactions for the user
+  getTransactions(): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(`${this.apiUrl}/transactions`);
   }
 }
