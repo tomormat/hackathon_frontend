@@ -4,52 +4,55 @@
     <h1>Welcome to Your Portfolio Manager</h1>
 </div> <br>
 
+
 <div class="content-container">
-    <!-- Searching for stocks-->
-    <div class="search-container">
-        <h2>Select a stock to view:</h2>
-        <div class="search-bar-wrapper">
-            <input 
-            type="text" 
-            class="search-bar" 
-            placeholder="Search stocks..."
-            [(ngModel)]="searchTerm"
-            (input)="filterStocks()"  />
-        </div>
-        <div class="search-results">
-            <div class="results-container">
-                <button class="result-box" *ngFor="let stock of filteredStocks" [routerLink]="['/personal', stock.id]">
-                    <h4>{{ stock.name }}</h4>
-                </button>
+    <div class="elevated-container">
+        <!-- Searching for stocks-->
+        <div class="search-container">
+            <h2>Select a stock to view:</h2>
+            <div class="search-bar-wrapper">
+                <input 
+                type="text" 
+                class="search-bar" 
+                placeholder="Search stocks..."
+                [(ngModel)]="searchTerm"
+                (input)="filterStocks()"  />
+            </div>
+            <div class="search-results">
+                <div class="results-container">
+                    <button class="result-box" *ngFor="let stock of filteredStocks" [routerLink]="['/personal', stock.id]">
+                        <h4>{{ stock.name }}</h4>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-    <!--View of users stocks-->
-    <div class="stock-container">
-        <h2>Your shares:</h2>
-        <div class="stock-box">
-            <button class="transaction-history-button" routerLink="/history">
-                <i class="fa fa-history"></i> Transaction History</button>
-            <table class="stock-table">
-                <thead>
-                    <tr>
-                        <th>Stock</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                    <ng-container *ngFor="let stock of stocks">
-                        <tr *ngIf="stock.price"> <!-- only show the stocks with a price (ones user has bought)-->
-                            <td>{{ stock.name }}</td>
-                            <td>£{{ stock.price }}</td>
+    
+    <div class="elevated-container">
+        <!--View of stocks to buy-->
+        <div class="stock-container">
+            <h2>Available stocks:</h2>
+            <div class="stock-box">
+                <table class="stock-table">
+                    <thead>
+                        <tr>
+                            <th>Stock</th>
+                            <th>Price</th>
                         </tr>
-                    </ng-container>
-                    <tr *ngIf="stocks.length === 0">
-                        <td colspan="2">No stocks available.</td>
-                        
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let stock of stocks">
+                            <tr *ngIf="stock.price"> <!-- only show the stocks with a price (ones user can buy)-->
+                                <td>{{ stock.name }}</td>
+                                <td>£{{ stock.price }}</td>
+                            </tr>
+                        </ng-container>
+                        <tr *ngIf="stocks.length === 0">
+                            <td colspan="2">No stocks available.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
