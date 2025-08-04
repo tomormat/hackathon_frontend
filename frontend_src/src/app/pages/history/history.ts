@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-history',
-  imports: [],
+  standalone: true,
+  imports: [RouterModule],
   templateUrl: './history.html',
-  styleUrl: './history.css'
+  styleUrls: ['./history.css']
 })
 export class History {
 
