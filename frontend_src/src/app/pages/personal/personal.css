@@ -7,6 +7,11 @@
   box-sizing: border-box;
 }
 
+h1 {
+  color: black;
+  font-size: 40px;
+}
+
 /* Top nav */
 .nav-bar {
   display: flex;
@@ -14,15 +19,24 @@
   align-items: center;
   margin-bottom: 2rem;
 }
-
+.nav-spacer {
+  display: flex;
+  gap: 30px;
+  
+}
 .nav-button {
-  background-color: #1c1c1c;
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 12px;
+  background-color: #007bff;
   color: white;
-  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
   cursor: pointer;
+  font-size: 20px;
+  text-align: center;
+}
+
+.nav-button:hover {
+  background-color: #0056b3;
 }
 
 /* Company info bar */

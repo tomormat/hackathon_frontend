@@ -28,7 +28,8 @@
     <div class="stock-container">
         <h2>Your shares:</h2>
         <div class="stock-box">
-            <button class="transaction-history-button" routerLink="/history">Transaction History</button>
+            <button class="transaction-history-button" routerLink="/history">
+                <i class="fa fa-history"></i> Transaction History</button>
             <table class="stock-table">
                 <thead>
                     <tr>
@@ -37,10 +38,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let stock of stocks">
-                        <td>{{ stock.name }}</td>
-                        <td>£{{stock.price}}</td>
-                    </tr>
+                    
+                    <ng-container *ngFor="let stock of stocks">
+                        <tr *ngIf="stock.price"> <!-- only show the stocks with a price (ones user has bought)-->
+                            <td>{{ stock.name }}</td>
+                            <td>£{{ stock.price }}</td>
+                        </tr>
+                    </ng-container>
                     <tr *ngIf="stocks.length === 0">
                         <td colspan="2">No stocks available.</td>
                         
