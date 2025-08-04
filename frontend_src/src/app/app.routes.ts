@@ -1,11 +1,9 @@
 import { Routes } from '@angular/router';
 import { Personal } from './pages/personal/personal';
 import { History } from './pages/history/history';
-import { Home } from './pages/home/home';
+import { App } from './app';
 
 export const routes: Routes = [
-    {path: '', component: Home, pathMatch: 'full'},
     {path: 'personal', component: Personal},
     {path: 'history', component: History},
-    
 ];
