@@ -2,10 +2,13 @@
 <div class="stock-container">
   <!-- Top Navigation -->
   <div class="nav-bar">
-    <button class="nav-button">STCK</button>
-    <div class="nav-spacer"></div>
-    <button class="nav-button">PERSONAL</button>
-    <button class="nav-button">HOME</button>
+    <h1>{{ stockName }}</h1>
+    <div class="nav-spacer">
+      <button class="nav-button" routerLink = "/history">
+        <i class="fa fa-history"></i> Transaction History</button>
+      <button class="nav-button" routerLink = "/">
+        <i class="fa fa-home"></i> Home</button>
+    </div>
   </div>
 
   <!-- Company Info Section -->
