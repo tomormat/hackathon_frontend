@@ -3,10 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root' // Makes the service globally available
+  providedIn: 'root' // make it globally available
 })
 export class StockService {
-  private mockStocksUrl = 'assets/mock-shares.json'; // Path to the JSON file
+  private mockStocksUrl = 'assets/mock-shares.json'; // tell it where the database is 
   constructor(private http: HttpClient) {}
 
   getStocks(): Observable<any[]> {

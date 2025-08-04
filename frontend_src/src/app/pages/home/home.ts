@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { StockService } from '../../services/stock.service';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { FormsModule } from '@angular/forms'; 
 
 
 @Component({
@@ -13,17 +13,17 @@ import { FormsModule } from '@angular/forms'; // Import FormsModule
   styleUrls: ['./home.css']
 })
 export class Home implements OnInit {
-  stocks: any[] = []; // All stocks
-  filteredStocks: any[] = []; // Filtered stocks based on search
-  searchTerm: string = ''; // User's search input
+  stocks: any[] = []; 
+  filteredStocks: any[] = []; 
+  searchTerm: string = '';
 
   constructor(private stockService: StockService) {}
 
   ngOnInit(): void {
-    // Fetch stock data from the service
+    // use stock.service to get the stock data from the mock db
     this.stockService.getStocks().subscribe(
       data => {
-        this.stocks = data; // Assign fetched data to the stocks variable
+        this.stocks = data; // this sets the name of the stock data to get it in the html
       },
       error => {
         console.error('Error fetching stock data:', error);
@@ -31,10 +31,10 @@ export class Home implements OnInit {
     );
   }
 
-  // Filter stocks based on the search term
+ // for the search bar:
   filterStocks(): void {
     if (this.searchTerm.trim() === '') {
-      this.filteredStocks = []; // Clear results if search term is empty
+      this.filteredStocks = []; 
     } else {
       this.filteredStocks = this.stocks.filter(stock =>
         stock.name.toLowerCase().includes(this.searchTerm.toLowerCase())

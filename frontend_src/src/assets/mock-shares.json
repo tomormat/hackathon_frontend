@@ -18,5 +18,9 @@
       "id": 4,
       "name": "Amazon.com Inc.",
       "price": 3300
+    },
+    {
+      "id": 5,
+      "name": "Coca Cola"
     }
   ]

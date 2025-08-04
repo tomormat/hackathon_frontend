@@ -14,7 +14,7 @@ export class Personal implements OnInit {
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    // Retrieve the stock ID from the route parameters
+    // this is for the routing: want the stock id for each personal page
     this.stockId = this.route.snapshot.paramMap.get('id');
   }
 }

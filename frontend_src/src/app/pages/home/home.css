@@ -1,17 +1,18 @@
 .header-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Aligns content to the top */
-    padding-top: 50px; /* Adds space from the top */
+    align-items: flex-start; 
+    padding-top: 50px; 
 }
 
 h1 {
     text-align: center;
-    font-size: 3.5rem; /* Adjusted for better visibility */
+    font-size: 3.5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .content-container {
-    width: 100%; /* Ensure full width of the parent container */
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -24,8 +25,8 @@ h1 {
     flex: 1;
     width: 55%;
     display: flex;
-    flex-direction: column; /* Stack header and search bar vertically */
-    align-items: center; /* Center-align content */
+    flex-direction: column; 
+    align-items: center; 
     margin-top: 20px;
     margin-left: 20px;
 }
@@ -38,68 +39,74 @@ h1 {
 
 h2 {
     text-align: left;
-    font-size: 2rem; /* Adjusted for better visibility */
+    font-size: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* ----- Looking at your stocks ------------ */
 .stock-box {
     position: relative;
-    width: 70%; /* Adjust width as needed */
-    height: auto; /* Adjust height based on content */
-    background-color: #ffffff; /* Light gray background */
-    border-radius: 10px; /* Rounded edges */
-    margin-top: 10px; /* Adds spacing between the h2 and the box */
-    padding: 20px; /* Adds padding inside the box */
+    width: 70%; 
+    height: auto; 
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    margin-top: 10px; 
+    padding: 20px; 
 }
 
 .stock-table {
-    width: 100%; /* Makes the table fill the box */
-    border-collapse: collapse; /* Removes space between table borders */
+    width: 100%; 
+    border-collapse: collapse; 
 }
 
 .stock-table th, .stock-table td {
-    border: 1px solid #ccc; /* Adds border to table cells */
-    padding: 10px; /* Adds padding inside cells */
-    text-align: left; /* Aligns text to the left */
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    text-align: left; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
 }
 
 .stock-table th {
     background-color:  #c5deef;
-    font-weight: bold; /* Makes header text bold */
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .transaction-history-button {
-    position: absolute; /* Position the button relative to the stock-box */
-    top: -60px; /* Position above the top of the container */
-    right: 10px; /* Distance from the right of the container */
-    background-color: #007bff; /* Button color */
-    color: white; /* Text color */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 10px 15px; /* Adjust padding */
-    cursor: pointer; /* Change cursor to pointer */
-    font-size: 14px; /* Adjust font size */
+    position: absolute; 
+    top: -60px; 
+    right: 10px; 
+    background-color: #007bff;
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 15px; 
+    cursor: pointer; 
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .transaction-history-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3; 
 }
 
 /* ----- Searching Stocks ------------ */
 
 .search-bar-wrapper {
-    position: relative; /* Allows positioning of the button inside the wrapper */
-    width: 80%; /* Full width of the container */
+    position: relative; 
+    width: 80%; 
     margin-top: 10px;
     align-items: right;
 }
 
 .search-bar {
-    width: 100%; /* Full width of the search bar */
-    padding: 10px; /* Add padding inside the input */
-    font-size: 16px; /* Adjust font size */
-    border: 1px solid #ccc; /* Add a border */
-    border-radius: 5px; /* Rounded corners */
+    width: 100%;
+    padding: 10px; 
+    font-size: 20px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 
@@ -112,25 +119,26 @@ h2 {
 }
 
 .results-container {
-    display: flex; /* Align stock boxes side by side */
-    flex-wrap: wrap; /* Allow wrapping to the next row if necessary */
-    gap: 10px; /* Space between stock boxes */
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 10px; 
     margin-top: 10px;
 }
 
 .result-box {
-    background-color: #c5deef; /* Light blue background */
-    padding: 10px; /* Padding inside the box */
-    text-align: center; /* Center-align text */
-    cursor: pointer; /* Change cursor to pointer */
+    background-color: #c5deef;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none; /* Remove underline for links */
-    border: none; /* Remove border */
-    border-radius: 10px; /* Add rounded corners */
+    text-decoration: none;
+    border: none; 
+    border-radius: 10px; 
+    font-size: 20px;
 }
 
 .result-box:hover {
-    background-color: #90c7eb; /* Light gray background on hover */
+    background-color: #90c7eb; 
 }
