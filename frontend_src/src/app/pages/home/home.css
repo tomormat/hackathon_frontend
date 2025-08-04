@@ -37,6 +37,19 @@ h1 {
     margin-right: -10px;
 }
 
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column; 
+        gap: 20px; 
+    }
+
+    .search-container, .stock-container {
+        width: 100%; 
+        margin-left: 0; 
+        margin-right: 0; 
+    }
+}
+
 h2 {
     text-align: left;
     font-size: 2rem;
@@ -89,6 +102,15 @@ h2 {
 
 .transaction-history-button:hover {
     background-color: #0056b3; 
+}
+
+@media (max-width: 1296px) {
+    .transaction-history-button {
+        position: static;
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+    }
 }
 
 /* ----- Searching Stocks ------------ */
