@@ -1,5 +1,5 @@
 .stock-container {
-  background-color: #e0e1e3;
+  background-color: #ffffff;
   padding: 2rem;
   font-family: Arial, sans-serif;
   color: white;
@@ -140,4 +140,15 @@ input[type="text"] {
   border-radius: 8px;
   border: none;
   font-weight: bold;
+}
+
+.footer {
+  background-color: #c5deef;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 1rem;
+  position: fixed; 
+  bottom: 0;
+  width: 100%;
+  font-size: 14px; 
 }
