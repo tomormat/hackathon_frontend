@@ -11,38 +11,44 @@ h1 {
 }
 
 .content-container {
+    width: 100%; /* Ensure full width of the parent container */
     display: flex;
-    justify-content: space-between; /* Adds space between the containers */
-    align-items: flex-start; /* Aligns containers to the top */
-    margin-top: 50px; /* Adds space below the header */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 50px;
+    gap: 50px;
 }
 
 .search-container {
-    width: 45%;
+    flex: 1;
+    width: 55%;
     display: flex;
     flex-direction: column; /* Stack header and search bar vertically */
     align-items: center; /* Center-align content */
     margin-top: 20px;
-    margin-left: 40px;
+    margin-left: 20px;
 }
 
 .stock-container {
-    width: 45%; /* Adjust width to fit side by side */
+    flex: 1;
+    width: 35%;
+    margin-right: -10px;
 }
 
 h2 {
     text-align: left;
     font-size: 2rem; /* Adjusted for better visibility */
 }
+
 /* ----- Looking at your stocks ------------ */
 .stock-box {
     position: relative;
     width: 70%; /* Adjust width as needed */
     height: auto; /* Adjust height based on content */
-    background-color: #f0f0f0; /* Light gray background */
+    background-color: #ffffff; /* Light gray background */
     border-radius: 10px; /* Rounded edges */
     margin-top: 10px; /* Adds spacing between the h2 and the box */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
     padding: 20px; /* Adds padding inside the box */
 }
 
@@ -58,7 +64,7 @@ h2 {
 }
 
 .stock-table th {
-    background-color: #e0e0e0; /* Light gray background for headers */
+    background-color:  #c5deef;
     font-weight: bold; /* Makes header text bold */
 }
 
@@ -82,37 +88,49 @@ h2 {
 /* ----- Searching Stocks ------------ */
 
 .search-bar-wrapper {
+    position: relative; /* Allows positioning of the button inside the wrapper */
+    width: 80%; /* Full width of the container */
     margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center; /* Align input and button vertically */
-    width: 100%; /* Full width of the container */
+    align-items: right;
 }
 
 .search-bar {
-    flex: 1; /* Make the input take up remaining space */
+    width: 100%; /* Full width of the search bar */
     padding: 10px; /* Add padding inside the input */
     font-size: 16px; /* Adjust font size */
     border: 1px solid #ccc; /* Add a border */
-    border-radius: 5px 0 0 5px; /* Rounded corners on the left */
+    border-radius: 5px; /* Rounded corners */
 }
 
-.search-button {
-    background-color: #007bff; /* Button color */
-    color: white; /* Icon color */
-    border: none; /* Remove border */
-    border-radius: 0 5px 5px 0; /* Rounded corners on the right */
-    padding: 10px 15px; /* Adjust padding */
+
+
+.search-results {
+    margin-top: 20px;
+    padding: 10px;
+    background-color:  #ffffff;
+    
+}
+
+.results-container {
+    display: flex; /* Align stock boxes side by side */
+    flex-wrap: wrap; /* Allow wrapping to the next row if necessary */
+    gap: 10px; /* Space between stock boxes */
+    margin-top: 10px;
+}
+
+.result-box {
+    background-color: #c5deef; /* Light blue background */
+    padding: 10px; /* Padding inside the box */
+    text-align: center; /* Center-align text */
     cursor: pointer; /* Change cursor to pointer */
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none; /* Remove underline for links */
+    border: none; /* Remove border */
+    border-radius: 10px; /* Add rounded corners */
 }
 
-.search-button i {
-    font-size: 16px; /* Adjust icon size */
-}
-
-.search-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+.result-box:hover {
+    background-color: #90c7eb; /* Light gray background on hover */
 }
