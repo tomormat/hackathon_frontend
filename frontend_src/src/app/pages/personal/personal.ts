@@ -53,8 +53,13 @@ export class Personal implements OnInit {
         if (this.openingPrice && this.currentPrice) {
           this.percentChange = ((this.currentPrice - this.openingPrice) / this.openingPrice) * 100;
         }
-        this.numberOfShares = stock.shares.length;
-        this.totalShareValue = stock.shares.reduce((acc: number, value: number) => acc + value, 0);
+        if (stock.shares && stock.shares.length > 0) {
+          this.numberOfShares = stock.shares.length;
+          this.totalShareValue = stock.shares.reduce((acc: number, value: number) => acc + value, 0);
+        } else {
+          this.numberOfShares = 0;
+          this.totalShareValue = 0;
+        }
         // this is the price graph 
         this.renderGraph();
       }
