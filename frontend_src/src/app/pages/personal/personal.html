@@ -3,18 +3,13 @@
   <!-- Top Navigation -->
   <div class="nav-bar">
     <h1>{{ stockName }}</h1>
-    <div class="nav-spacer">
-      <button class="nav-button" routerLink="/history">
-        <i class="fa fa-history"></i> Transaction History</button>
-      <button class="nav-button" routerLink="/">
-        <i class="fa fa-home"></i> Home</button>
+    <div class="company-info">
+      <h2 class = "info">Current Price: £{{ currentPrice }}</h2><h2 class = "info"> Change from open: {{percentChange | number:'1.2-2' }}%</h2>
     </div>
   </div>
 
   <!-- Company Info Section -->
-  <div class="company-info">
-    <h2 class = "info">Current Price: £{{ currentPrice }}</h2><h2 class = "info"> Change from open: {{percentChange | number:'1.2-2' }}%</h2>
-  </div>
+  
 
   <!-- Main Content Area -->
   <div class="content-grid">
