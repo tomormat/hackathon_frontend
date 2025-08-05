@@ -28,3 +28,23 @@ body {
   width: 90%;
   opacity: 1; /* fully opaque */
 }
+
+.elevated-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.elevated-container table th,
+.elevated-container table td {
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #000;
+}
+
+.elevated-container table th {
+  background: #f4f4f4;
+  font-weight: bold;
+}
