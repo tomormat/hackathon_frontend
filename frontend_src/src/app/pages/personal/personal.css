@@ -5,6 +5,7 @@
   color: white;
   height: 100vh;
   box-sizing: border-box;
+
 }
 
 h1 {
@@ -15,15 +16,11 @@ h1 {
 /* Top nav */
 .nav-bar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
+  flex-direction: row;
+  align-items: baseline;
+  gap:100px;
 }
-.nav-spacer {
-  display: flex;
-  gap: 30px;
-  
-}
+
 .nav-button {
   background-color: #007bff;
   color: white;
@@ -41,10 +38,15 @@ h1 {
 
 /* Company info bar */
 .company-info {
-  background-color: #2d2d2d;
-  padding: 1rem 2rem;
-  border-radius: 20px;
-  margin-bottom: 2rem;
+  background-color: #ffffff;
+  align-items: baseline;
+  display:flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.info {
+  color: blue;
 }
 
 /* Main content layout */
@@ -77,16 +79,38 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+
 }
 
 .stock-info {
-  background-color: #1f1f1f;
+  background-color: #c5deef;
   border-radius: 20px;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-box {
+  background-color: #f9f9f9; /* Light gray background */
+  border: 1px solid #ccc; /* Border around the box */
+  border-radius: 10px; /* Rounded corners */
+  padding: 1rem; /* Padding inside the box */
+  text-align: center; /* Center-align text */
+  width: 200px; /* Fixed width for each box */
+  margin: 1rem; /* Space between boxes */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+  color:#000;
+}
+
+.info-panel {
+  display: flex; /* Align boxes horizontally */
+  gap: 1rem; /* Space between boxes */
+  justify-content: center; /* Center-align the boxes */
 }
 
 .buy-sell {
-  background-color: #1f1f1f;
+  background-color: #c5deef;
   border-radius: 20px;
   padding: 1.5rem;
   display: flex;
@@ -107,22 +131,28 @@ h1 {
   border: none;
   font-weight: bold;
   cursor: pointer;
+  font-size: 26px;
 }
 
 .buy {
   background-color: transparent;
-  color: limegreen;
+  color: rgb(19, 148, 19);
   border: none;
   font-weight: bold;
   cursor: pointer;
+  font-size: 26px;
 }
 
 input[type="text"] {
-  padding: 0.5rem;
+  padding: 1rem;
   border-radius: 8px;
   border: none;
-  width: 80px;
-  text-align: center;
+
+  
+}
+.buy-amount {
+  font-size: 22px;
+  width:60px;
 }
 
 .total-button {
@@ -132,21 +162,37 @@ input[type="text"] {
   border-radius: 8px;
   border: none;
   font-weight: bold;
+  font-size: 22px;
 }
 
+
+
+.footer {
+  background-color: #c5deef;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 1rem;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px; 
+}
 
 .graph-box {
   width: 100%;
   height: 400px;
-  margin-top: 20px;
   position: relative;
   z-index: 1;
+}
+
+.graph-box {
   background-color: #ffffff;
   border-radius: 25px;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 400px;
+  width:100%;
 }
 
 canvas {

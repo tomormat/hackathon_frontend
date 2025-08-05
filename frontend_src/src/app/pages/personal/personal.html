@@ -4,30 +4,24 @@
   <!-- Top Navigation -->
   <div class="nav-bar">
     <h1>{{ stockName }}</h1>
+
+    <div class="company-info">
+      <h2 class = "info">Current Price: £{{ currentPrice }}</h2><h2 class = "info"> Change from open: {{percentChange | number:'1.2-2' }}%</h2>
+    </div>
+
   </div>
 
   <!-- Company Info Section -->
-  <div class="company-info">
-    <ul>
-
-      <li *ngIf="stock">
-        {{ stock.name }}; {{ stock.id }}; ${{ stock.price | number:'1.2-2' }};
-        {{ stock.valueChangePercent24h !== undefined ? (stock.valueChangePercent24h | number:'1.2-2') + '%' : 'N/A' }}
-      </li>
-
-      <li>Current Price: £{{ currentPrice }}; Change from open: {{percentChange | number:'1.2-2' }}%</li> <!-- Example: Apple; AAPL; $150; +2.5% -->
-
-    </ul>
-  </div>
+  
 
   <!-- Main Content Area -->
   <div class="content-grid" style="flex: 1;">
     <!-- Graph Area -->
     <div class="graph-box">
       <div class="graph">
-        <h2>{{ stockName }} Price Graph</h2>
         <canvas id="stockGraph"></canvas>
       </div>
+      <!-- Add this in if we have time? 
       <div class="graph-timescale">
         <button>All Time</button>
         <button>5Y</button>
@@ -37,22 +31,32 @@
         <button>1 Day</button>
         <button>12 H</button>
         <button>1 H</button>
-      </div>
+      </div> -->
     </div>
 
     <!-- Info Panel + Buy/Sell -->
     <div class="info-panel">
       <div class="stock-info">
-        <p>Amount of stocks</p>
-        <p>Current value</p>
-        <p>Transaction dates?</p>
-        <p>value change?</p>
+        <h2 style="color:black;">Your {{ stockName }} Shares</h2>
+        <div style="display:flex; flex-direction: row;">
+          
+          <div class="info-box">
+            <p style="font-size: 30px;">{{ numberOfShares }}</p>
+            <h3>Amount of Stocks</h3>
+            
+          </div>
+          <div class="info-box">
+            <p style="font-size: 30px;">£{{ totalShareValue }}</p>
+            <h3>Total Share Value</h3>
+            
+          </div>
+        </div>
       </div>
 
       <div class="buy-sell">
         <div class="action-buttons">
           <button class="sell">Sell</button>
-          <input
+          <input class = "buy-amount"
             type="number"
             min="1"
             [(ngModel)]="buyAmount"
