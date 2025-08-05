@@ -1,6 +1,6 @@
 <app-global-header title="Personal Dashboard"></app-global-header>
 
-<div class="stock-container">
+<div class="stock-container" style="min-height: calc(100vh - 100px); display: flex; flex-direction: column;">
   <!-- Top Navigation -->
   <div class="nav-bar">
     <h1>{{ stockName }}</h1>
@@ -21,7 +21,7 @@
   </div>
 
   <!-- Main Content Area -->
-  <div class="content-grid">
+  <div class="content-grid" style="flex: 1;">
     <!-- Graph Area -->
     <div class="graph-box">
       <div class="graph">
@@ -68,3 +68,4 @@
   </div>
 </div>
 <app-global-footer></app-global-footer>
+

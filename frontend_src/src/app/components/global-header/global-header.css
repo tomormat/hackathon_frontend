@@ -1,3 +1,10 @@
+header {
+  margin: 0;
+  padding: 0;
+  width: 100vw; /* Force full viewport width */
+  position: relative;
+}
+
 .header-container {
   position: static; /* Changed from fixed to static */
   width: 100vw; /* Ensure full viewport width */
