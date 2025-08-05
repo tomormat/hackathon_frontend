@@ -29,6 +29,8 @@ export class Personal implements OnInit {
   currentPrice: number | null = null;
   openingPrice: number | null = null;
   percentChange: number | null = null;
+  numberOfShares: number = 0;
+  totalShareValue: number = 0;
 
   constructor(private route: ActivatedRoute, private stockService: StockService) {}
 
@@ -50,6 +52,8 @@ export class Personal implements OnInit {
         if (this.openingPrice && this.currentPrice) {
           this.percentChange = ((this.currentPrice - this.openingPrice) / this.openingPrice) * 100;
         }
+        this.numberOfShares = stock.shares.length;
+        this.totalShareValue = stock.shares.reduce((acc: number, value: number) => acc + value, 0);
         // this is the price graph 
         this.renderGraph();
       }
@@ -57,8 +61,8 @@ export class Personal implements OnInit {
   }
 
   get totalPrice(): number {
-    if (!this.stock) return 0;
-    return this.stock.price * this.buyAmount;
+    if (!this.stock || this.currentPrice == null) return 0;
+    return this.currentPrice * this.buyAmount;
   }
   //price graph:
   renderGraph(): void {
@@ -75,7 +79,7 @@ export class Personal implements OnInit {
         labels: formattedTimes,
         datasets: [
           {
-            label: `${this.stockName} Prices`,
+            label: `${this.stockName} Prices`, // get the mock stock data
             data: this.stockPrices,
             borderColor: '#007bff',
             backgroundColor: 'rgba(0, 123, 255, 0.2)',
@@ -91,13 +95,29 @@ export class Personal implements OnInit {
             type: 'category',
             title: {
               display: true,
-              text: 'Time'
+              text: 'Time',
+              font: {
+                size: 20
+              }
+            },
+            ticks: {
+              font: {
+                size: 14
+              }
             }
           },
           y: {
             title: {
               display: true,
-              text: 'Price'
+              text: 'Price',
+              font: {
+                size: 20
+              }
+            },
+            ticks: {
+              font: {
+                size: 14
+              }
             }
           }
         }
