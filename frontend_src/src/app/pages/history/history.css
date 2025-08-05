@@ -1,5 +1,5 @@
 .personal-container {
-  background-color: #e9eaee;
+  background-color: #ffffff;
   height: 70vh;
   padding: 2rem;
   box-sizing: border-box;
@@ -45,9 +45,20 @@ h1 {
 }
 
 .transaction {
-  background-color: #e9eaee;
+  background-color: #ffffff;
   padding: 1rem;
   border-radius: 5px;
   color: #333;
   font-family: monospace;
+}
+
+.footer {
+  background-color: #c5deef;
+  color: rgb(0, 0, 0);  
+  text-align: center;
+  padding: 1rem;
+  position: fixed; 
+  bottom: 0;
+  width: 100%;
+  font-size: 14px; 
 }
