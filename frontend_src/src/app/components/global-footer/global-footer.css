@@ -1,6 +1,5 @@
 .footer {
   position: relative; /* Allow the footer to follow the content flow */
-  width: 100%;
   background: #252ee1; /* Match header color */
   color: white;
   text-align: center;
