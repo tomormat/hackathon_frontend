@@ -5,13 +5,17 @@ import { RouterModule } from '@angular/router';
 import { Stock } from '../../interfaces/stock'; 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
+import { GlobalHeader } from '../../components/global-header/global-header';
+
 import { Chart, registerables } from 'chart.js';
+
 
 
 @Component({
   selector: 'app-personal',
   standalone: true,
-  imports: [RouterModule, CommonModule, FormsModule],
+  imports: [RouterModule, CommonModule, FormsModule, GlobalHeader],
   templateUrl: './personal.html',
   styleUrl: './personal.css'
 })

@@ -1,11 +1,12 @@
+<app-global-header title="Personal Dashboard"></app-global-header>
 <div class="stock-container">
   <!-- Top Navigation -->
   <div class="nav-bar">
     <h1>{{ stockName }}</h1>
     <div class="nav-spacer">
-      <button class="nav-button" routerLink = "/history">
+      <button class="nav-button" routerLink="/history">
         <i class="fa fa-history"></i> Transaction History</button>
-      <button class="nav-button" routerLink = "/">
+      <button class="nav-button" routerLink="/">
         <i class="fa fa-home"></i> Home</button>
     </div>
   </div>
@@ -13,7 +14,14 @@
   <!-- Company Info Section -->
   <div class="company-info">
     <ul>
+
+      <li *ngIf="stock">
+        {{ stock.name }}; {{ stock.id }}; ${{ stock.price | number:'1.2-2' }};
+        {{ stock.valueChangePercent24h !== undefined ? (stock.valueChangePercent24h | number:'1.2-2') + '%' : 'N/A' }}
+      </li>
+
       <li>Current Price: £{{ currentPrice }}; Change from open: {{percentChange | number:'1.2-2' }}%</li> <!-- Example: Apple; AAPL; $150; +2.5% -->
+
     </ul>
   </div>
 
@@ -26,7 +34,14 @@
         <canvas id="stockGraph"></canvas>
       </div>
       <div class="graph-timescale">
-        All Time 5Y 1Y 1M 1W 1 Day 12 H 1 H
+        <button>All Time</button>
+        <button>5Y</button>
+        <button>1Y</button>
+        <button>1M</button>
+        <button>1W</button>
+        <button>1 Day</button>
+        <button>12 H</button>
+        <button>1 H</button>
       </div>
     </div>
 
