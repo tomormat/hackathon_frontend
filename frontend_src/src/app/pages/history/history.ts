@@ -3,11 +3,12 @@ import { RouterModule } from '@angular/router';
 import { StockService } from '../../services/stock.Mock.service';
 import { Transaction } from '../../interfaces/stock';
 import { CommonModule } from '@angular/common';
+import { GlobalHeader } from '../../components/global-header/global-header';
 
 @Component({
   selector: 'app-history',
   standalone: true,
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, GlobalHeader],
   templateUrl: './history.html',
   styleUrls: ['./history.css']
 })
