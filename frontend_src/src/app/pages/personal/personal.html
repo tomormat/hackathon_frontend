@@ -1,18 +1,21 @@
 <app-global-header title="Personal Dashboard"></app-global-header>
-<div class="stock-container">
+
+<div class="stock-container" style="min-height: calc(100vh - 100px); display: flex; flex-direction: column;">
   <!-- Top Navigation -->
   <div class="nav-bar">
     <h1>{{ stockName }}</h1>
+
     <div class="company-info">
       <h2 class = "info">Current Price: £{{ currentPrice }}</h2><h2 class = "info"> Change from open: {{percentChange | number:'1.2-2' }}%</h2>
     </div>
+
   </div>
 
   <!-- Company Info Section -->
   
 
   <!-- Main Content Area -->
-  <div class="content-grid">
+  <div class="content-grid" style="flex: 1;">
     <!-- Graph Area -->
     <div class="graph-box">
       <div class="graph">
@@ -68,6 +71,5 @@
     </div>
   </div>
 </div>
-<footer class="footer">
-  <p>&copy; 2025 Team Rocket Ltd. </p>
-</footer>
+<app-global-footer></app-global-footer>
+

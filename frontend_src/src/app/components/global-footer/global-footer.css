@@ -1,0 +1,10 @@
+.footer {
+  position: relative; /* Allow the footer to follow the content flow */
+  width: 100%;
+  background: #252ee1; /* Match header color */
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 20px 20px 0 0; /* Rounded lower edges */
+  margin-top: auto; /* Push the footer to the bottom when content is less */
+}

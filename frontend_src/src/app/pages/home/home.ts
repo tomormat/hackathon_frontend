@@ -4,12 +4,13 @@ import { RouterModule } from '@angular/router';
 import { StockService } from '../../services/stock.Mock.service';
 import { FormsModule } from '@angular/forms'; 
 import { GlobalHeader } from '../../components/global-header/global-header';
+import { GlobalFooter } from '../../components/global-footer/global-footer';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, GlobalHeader],
+  imports: [CommonModule, RouterModule, FormsModule, GlobalHeader, GlobalFooter],
   templateUrl: './home.html',
   styleUrls: ['./home.css']
 })
