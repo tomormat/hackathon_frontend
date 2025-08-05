@@ -1,0 +1,12 @@
+.footer {
+  background: #252ee1 !important; /* Match header color */
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 20px 20px 0 0; /* Rounded upper edges */
+  position: fixed; /* Fix the footer at the bottom */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}

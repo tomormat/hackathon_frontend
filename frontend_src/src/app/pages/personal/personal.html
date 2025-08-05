@@ -1,14 +1,9 @@
 <app-global-header title="Personal Dashboard"></app-global-header>
+
 <div class="stock-container">
   <!-- Top Navigation -->
   <div class="nav-bar">
     <h1>{{ stockName }}</h1>
-    <div class="nav-spacer">
-      <button class="nav-button" routerLink="/history">
-        <i class="fa fa-history"></i> Transaction History</button>
-      <button class="nav-button" routerLink="/">
-        <i class="fa fa-home"></i> Home</button>
-    </div>
   </div>
 
   <!-- Company Info Section -->
@@ -72,6 +67,4 @@
     </div>
   </div>
 </div>
-<footer class="footer">
-  <p>&copy; 2025 Team Rocket Ltd. </p>
-</footer>
+<app-global-footer></app-global-footer>

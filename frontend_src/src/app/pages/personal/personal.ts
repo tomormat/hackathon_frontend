@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { GlobalHeader } from '../../components/global-header/global-header';
+import { GlobalFooter } from '../../components/global-footer/global-footer';
 
 import { Chart, registerables } from 'chart.js';
 
@@ -15,7 +16,7 @@ import { Chart, registerables } from 'chart.js';
 @Component({
   selector: 'app-personal',
   standalone: true,
-  imports: [RouterModule, CommonModule, FormsModule, GlobalHeader],
+  imports: [RouterModule, CommonModule, FormsModule, GlobalHeader, GlobalFooter],
   templateUrl: './personal.html',
   styleUrl: './personal.css'
 })
