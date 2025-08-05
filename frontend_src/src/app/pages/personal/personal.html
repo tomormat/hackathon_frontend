@@ -13,7 +13,7 @@
   <!-- Company Info Section -->
   <div class="company-info">
     <ul>
-      <li>name; Company ;value right now ;value change % last 24 hrs</li> <!-- Example: Apple; AAPL; $150; +2.5% -->
+      <li>Current Price: £{{ currentPrice }}; Change from open: {{percentChange | number:'1.2-2' }}%</li> <!-- Example: Apple; AAPL; $150; +2.5% -->
     </ul>
   </div>
 
@@ -21,7 +21,10 @@
   <div class="content-grid">
     <!-- Graph Area -->
     <div class="graph-box">
-      <div class="graph"></div>
+      <div class="graph">
+        <h2>{{ stockName }} Price Graph</h2>
+        <canvas id="stockGraph"></canvas>
+      </div>
       <div class="graph-timescale">
         All Time 5Y 1Y 1M 1W 1 Day 12 H 1 H
       </div>
