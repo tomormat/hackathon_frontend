@@ -29,6 +29,8 @@ export class Personal implements OnInit {
   currentPrice: number | null = null;
   openingPrice: number | null = null;
   percentChange: number | null = null;
+  numberOfShares: number = 0;
+  totalShareValue: number = 0;
 
   constructor(private route: ActivatedRoute, private stockService: StockService) {}
 
@@ -50,6 +52,8 @@ export class Personal implements OnInit {
         if (this.openingPrice && this.currentPrice) {
           this.percentChange = ((this.currentPrice - this.openingPrice) / this.openingPrice) * 100;
         }
+        this.numberOfShares = stock.shares.length;
+        this.totalShareValue = stock.shares.reduce((acc: number, value: number) => acc + value, 0);
         // this is the price graph 
         this.renderGraph();
       }
@@ -98,7 +102,7 @@ export class Personal implements OnInit {
             },
             ticks: {
               font: {
-                size: 14 // Font size for the y-axis labels
+                size: 14
               }
             }
           },
@@ -112,7 +116,7 @@ export class Personal implements OnInit {
             },
             ticks: {
               font: {
-                size: 14 // Font size for the y-axis labels
+                size: 14
               }
             }
           }
