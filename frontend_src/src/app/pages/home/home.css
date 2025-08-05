@@ -164,3 +164,14 @@ h2 {
 .result-box:hover {
     background-color: #90c7eb; 
 }
+
+.footer {
+    background-color: #c5deef;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 1rem;
+    position: fixed; 
+    bottom: 0;
+    width: 100%;
+    font-size: 14px; 
+}

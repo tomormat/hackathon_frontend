@@ -14,10 +14,14 @@
   <!-- Company Info Section -->
   <div class="company-info">
     <ul>
+
       <li *ngIf="stock">
         {{ stock.name }}; {{ stock.id }}; ${{ stock.price | number:'1.2-2' }};
         {{ stock.valueChangePercent24h !== undefined ? (stock.valueChangePercent24h | number:'1.2-2') + '%' : 'N/A' }}
       </li>
+
+      <li>Current Price: £{{ currentPrice }}; Change from open: {{percentChange | number:'1.2-2' }}%</li> <!-- Example: Apple; AAPL; $150; +2.5% -->
+
     </ul>
   </div>
 
@@ -25,7 +29,10 @@
   <div class="content-grid">
     <!-- Graph Area -->
     <div class="graph-box">
-      <div class="graph"></div>
+      <div class="graph">
+        <h2>{{ stockName }} Price Graph</h2>
+        <canvas id="stockGraph"></canvas>
+      </div>
       <div class="graph-timescale">
         <button>All Time</button>
         <button>5Y</button>
@@ -65,4 +72,6 @@
     </div>
   </div>
 </div>
-
+<footer class="footer">
+  <p>&copy; 2025 Team Rocket Ltd. </p>
+</footer>
