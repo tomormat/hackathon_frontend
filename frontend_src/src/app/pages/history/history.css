@@ -248,3 +248,19 @@ tbody tr {
   color: #0056b3; /* Darker shade for hover */
 }
 
+.green-text {
+  color: green !important;
+}
+
+.red-text {
+  color: red !important;
+}
+
+.buy-transaction {
+  color: green;
+}
+
+.sell-transaction {
+  color: red;
+}
+
