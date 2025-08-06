@@ -26,9 +26,21 @@ export class History implements OnInit {
 
   ngOnInit(): void {
     this.stockService.getTransactions().subscribe((data: Transaction[]) => {
-      this.transactions = data;
-      this.filteredTransactions = data;
+      this.transactions = data.map(transaction => {
+        const currentValue = this.calculateCurrentValue(transaction);
+        return {
+          ...transaction,
+          currentValue,
+          valueChangePercent: ((currentValue - transaction.valueAtDate) / transaction.valueAtDate) * 100
+        };
+      });
+      this.filteredTransactions = [...this.transactions];
     });
+  }
+
+  calculateCurrentValue(transaction: Transaction): number {
+    const currentStock = this.stockService.getStockByName(transaction.stock.name);
+    return currentStock ? currentStock.currentPrice : 0;
   }
 
   filterStocks(): void {

@@ -22,6 +22,7 @@
           <th (click)="sortData('date')">DATE <span [class]="getSortClass('date')"></span></th>
           <th (click)="sortData('valueAtDate')">VALUE_AT_Date <span [class]="getSortClass('valueAtDate')"></span></th>
           <th (click)="sortData('valueChangePercent')">value_change% <span [class]="getSortClass('valueChangePercent')"></span></th>
+          <th>CURRENT VALUE</th>
         </tr>
       </thead>
     </table>
@@ -34,6 +35,7 @@
             <td>{{ t.date | date:'yyyy-MM-dd HH:mm' }}</td>
             <td>{{ t.valueAtDate | number:'1.2-2' }}</td>
             <td>{{ t.valueChangePercent | number:'1.2-2' }}%</td>
+            <td>{{ t.currentValue | number:'1.2-2' }}</td>
           </tr>
         </tbody>
       </table>

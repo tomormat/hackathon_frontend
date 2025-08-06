@@ -31,6 +31,10 @@ export class StockService {
     return this.stocks.find(stock => stock.id === id);
   }
 
+  getStockByName(name: string): any {
+    return this.stocks.find(stock => stock.name === name);
+  }
+
   getTransactions(): Observable<Transaction[]> {
     return of(this.transactions);
   }

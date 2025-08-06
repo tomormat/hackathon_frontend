@@ -13,4 +13,5 @@ export interface Transaction {
   date: string; // or Date
   valueAtDate: number;
   valueChangePercent: number;
+  currentValue?: number;
 }
