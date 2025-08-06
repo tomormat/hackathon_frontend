@@ -2,37 +2,131 @@
   {
     "id": 1,
     "stock": {
-      "id": 101,
+      "id": 1,
       "name": "Apple Inc.",
-      "price": 195.30
+      "price": 150.00
     },
     "amount": 5,
     "date": "2025-08-01T10:15:00Z",
-    "valueAtDate": 976.50,
-    "valueChangePercent": 2.1
+    "valueAtDate": 750.00,
+    "currentValue": 740.00,
+    "type": "buy"
   },
   {
     "id": 2,
     "stock": {
-      "id": 102,
-      "name": "Tesla, Inc.",
-      "price": 720.50
+      "id": 2,
+      "name": "Microsoft Corp.",
+      "price": 310.00
     },
-    "amount": 2,
+    "amount": 3,
     "date": "2025-08-02T14:30:00Z",
-    "valueAtDate": 1441.00,
-    "valueChangePercent": -1.3
+    "valueAtDate": 930.00,
+    "currentValue": 920.00,
+    "type": "sell"
   },
   {
     "id": 3,
     "stock": {
-      "id": 103,
-      "name": "Microsoft Corp.",
-      "price": 340.10
+      "id": 3,
+      "name": "Tesla Inc.",
+      "price": 700.00
+    },
+    "amount": 2,
+    "date": "2025-08-03T09:00:00Z",
+    "valueAtDate": 1400.00,
+    "currentValue": 1390.00,
+    "type": "buy"
+  },
+  {
+    "id": 4,
+    "stock": {
+      "id": 4,
+      "name": "Amazon.com Inc.",
+      "price": 3300.00
+    },
+    "amount": 1,
+    "date": "2025-08-04T11:45:00Z",
+    "valueAtDate": 3300.00,
+    "currentValue": 3350.00,
+    "type": "sell"
+  },
+  {
+    "id": 5,
+    "stock": {
+      "id": 5,
+      "name": "Coca Cola",
+      "price": 50.00
+    },
+    "amount": 10,
+    "date": "2025-08-05T16:20:00Z",
+    "valueAtDate": 500.00,
+    "currentValue": 505.00,
+    "type": "buy"
+  },
+  {
+    "id": 6,
+    "stock": {
+      "id": 1,
+      "name": "Apple Inc.",
+      "price": 152.00
     },
     "amount": 3,
-    "date": "2025-08-03T09:00:00Z",
-    "valueAtDate": 1020.30,
-    "valueChangePercent": 0.7
-    }
+    "date": "2025-08-06T10:00:00Z",
+    "valueAtDate": 456.00,
+    "currentValue": 459.00,
+    "type": "sell"
+  },
+  {
+    "id": 7,
+    "stock": {
+      "id": 2,
+      "name": "Microsoft Corp.",
+      "price": 312.00
+    },
+    "amount": 4,
+    "date": "2025-08-06T11:30:00Z",
+    "valueAtDate": 1248.00,
+    "currentValue": 1256.00,
+    "type": "buy"
+  },
+  {
+    "id": 8,
+    "stock": {
+      "id": 3,
+      "name": "Tesla Inc.",
+      "price": 705.00
+    },
+    "amount": 1,
+    "date": "2025-08-06T12:45:00Z",
+    "valueAtDate": 705.00,
+    "currentValue": 710.00,
+    "type": "sell"
+  },
+  {
+    "id": 9,
+    "stock": {
+      "id": 4,
+      "name": "Amazon.com Inc.",
+      "price": 3305.00
+    },
+    "amount": 2,
+    "date": "2025-08-06T14:00:00Z",
+    "valueAtDate": 6610.00,
+    "currentValue": 6650.00,
+    "type": "buy"
+  },
+  {
+    "id": 10,
+    "stock": {
+      "id": 5,
+      "name": "Coca Cola",
+      "price": 51.00
+    },
+    "amount": 15,
+    "date": "2025-08-06T15:30:00Z",
+    "valueAtDate": 765.00,
+    "currentValue": 765.00,
+    "type": "sell"
+  }
 ]

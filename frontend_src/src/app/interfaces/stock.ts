@@ -13,4 +13,6 @@ export interface Transaction {
   date: string; // or Date
   valueAtDate: number;
   valueChangePercent: number;
+  currentValue?: number;
+  type: 'buy' | 'sell'; // Added type property to distinguish between buy and sell transactions
 }
