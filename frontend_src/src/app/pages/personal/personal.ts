@@ -77,6 +77,13 @@ export class Personal implements OnInit {
       const date = new Date(time);
       return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     });
+
+    const minPrice = Math.min(...this.stockPrices);
+    const maxPrice = Math.max(...this.stockPrices);
+    const minPriceIndex = this.stockPrices.indexOf(minPrice);
+    const maxPriceIndex = this.stockPrices.indexOf(maxPrice);
+    const minPriceTime = new Date(this.stockTimes[minPriceIndex]).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const maxPriceTime = new Date(this.stockTimes[maxPriceIndex]).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   
     const ctx = document.getElementById('stockGraph') as HTMLCanvasElement;
     new Chart(ctx, {
@@ -90,12 +97,40 @@ export class Personal implements OnInit {
             borderColor: '#007bff',
             backgroundColor: 'rgba(0, 123, 255, 0.2)',
             fill: true
-          }
+          },
+          {
+            label: `Min Price (at ${minPriceTime})`, // Dashed line for minimum price
+            data: Array(this.stockPrices.length).fill(minPrice),
+            borderColor: '#ff0000',
+            borderDash: [5, 5], // Dashed line
+            fill: false,
+          },
+          {
+            label: `Max Price (at ${maxPriceTime})`, // Dashed line for maximum price
+            data: Array(this.stockPrices.length).fill(maxPrice),
+            borderColor: '#00ff00',
+            borderDash: [5, 5], // Dashed line
+            fill: false,
+          },
         ]
       },
       options: {
         responsive: false,
         maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            labels: {
+              font: {
+                size: 18,
+              },
+            },
+          },
+          tooltip: {
+            bodyFont: {
+              size: 18,
+            },
+          },
+        },
         scales: {
           x: {
             type: 'category',
@@ -115,7 +150,7 @@ export class Personal implements OnInit {
           y: {
             title: {
               display: true,
-              text: 'Price',
+              text: 'Price (GBP)',
               font: {
                 size: 20
               }
