@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { StockService } from '../../services/stock.Mock.service';
-import { Transaction } from '../../interfaces/stock';
+import { Transaction, TransactionWithChange } from '../../interfaces/stock';
 import { CommonModule } from '@angular/common';
 import { GlobalHeader } from '../../components/global-header/global-header';
 import { GlobalFooter } from '../../components/global-footer/global-footer';
 import { FormsModule } from '@angular/forms';
+import { calculateValueChangePercent } from '../../utils/stock-utils/transaction-utils';
 
 @Component({
   selector: 'app-history',
@@ -15,12 +16,12 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./history.css']
 })
 export class History implements OnInit {
-  transactions: Transaction[] = [];
-  filteredTransactions: Transaction[] = [];
+  transactions: TransactionWithChange[] = [];
+  filteredTransactions: TransactionWithChange[] = [];
   searchTerm: string = '';
   sortColumn: string = '';
   sortDirection: 'asc' | 'desc' = 'asc';
-  selectedTransaction: Transaction | null = null;
+  selectedTransaction: TransactionWithChange | null = null; // Update type for selectedTransaction
 
   constructor(private stockService: StockService) {}
 
@@ -28,7 +29,7 @@ export class History implements OnInit {
     this.stockService.getTransactions().subscribe((data: Transaction[]) => {
       this.transactions = data.map(transaction => {
         const currentValue = transaction.currentValue !== undefined ? transaction.currentValue : transaction.valueAtDate;
-        const valueChangePercent = ((currentValue - transaction.valueAtDate) / transaction.valueAtDate) * 100;
+        const valueChangePercent = calculateValueChangePercent(transaction.valueAtDate, currentValue);
         return {
           ...transaction,
           currentValue,
@@ -85,7 +86,13 @@ export class History implements OnInit {
   }
 
   showTransactionDetails(transaction: Transaction): void {
-    this.selectedTransaction = transaction;
+    const currentValue = transaction.currentValue !== undefined ? transaction.currentValue : transaction.valueAtDate;
+    const valueChangePercent = calculateValueChangePercent(transaction.valueAtDate, currentValue);
+    this.selectedTransaction = {
+        ...transaction,
+        currentValue,
+        valueChangePercent
+    };
   }
 
   closePopup(): void {
