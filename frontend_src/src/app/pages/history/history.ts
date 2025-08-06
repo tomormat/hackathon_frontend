@@ -20,6 +20,7 @@ export class History implements OnInit {
   searchTerm: string = '';
   sortColumn: string = '';
   sortDirection: 'asc' | 'desc' = 'asc';
+  selectedTransaction: Transaction | null = null;
 
   constructor(private stockService: StockService) {}
 
@@ -68,5 +69,13 @@ export class History implements OnInit {
       return this.sortDirection === 'asc' ? 'arrow-up' : 'arrow-down';
     }
     return '';
+  }
+
+  showTransactionDetails(transaction: Transaction): void {
+    this.selectedTransaction = transaction;
+  }
+
+  closePopup(): void {
+    this.selectedTransaction = null;
   }
 }

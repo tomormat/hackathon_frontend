@@ -1,8 +1,11 @@
 .personal-container {
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0); /* Semi-transparent background */
   padding: 2rem;
   box-sizing: border-box;
-  height:85vh;
+  height: 85vh;
+  opacity: 1; /* Ensure elements inside are visible */
+  filter: none; /* Remove blur by default */
+  pointer-events: auto; /* Allow interactions by default */
 }
 body {
   height: 100vh;
@@ -34,7 +37,7 @@ h1 {
   background-color: #0056b3;
 }
 .transactions-box {
-  background-color: #2d2d2d;
+  background-color: #252ee1;
   padding: 2rem;
   border-radius: 25px;
   height: 500px;
@@ -92,44 +95,91 @@ h1 {
 }
 
 th {
-  background-color: #007bff; /* Match navigation bar button color */
-  color: white;
+  background-color: white; /* Match navigation bar button color */
+  color: #252ee1;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px; /* Fully rounded */
   padding: 10px 20px;
   cursor: pointer;
   font-size: 20px; /* Match navigation bar button font size */
   text-align: center;
   transition: background-color 0.3s ease; /* Smooth hover effect */
+  margin: 0 20px; /* Add spacing between buttons */
 }
 
 th:hover {
-  background-color: #0056b3; /* Match navigation bar button hover color */
+  transform: translateY(-2px); /* Elevate the button */
+  transition: transform 0.3s; /* Smooth elevation effect */
 }
 
 tbody tr {
-  background-color: #ffffff;
-  border-radius: 10px;
+  background-color: #252ee1; /* Set row background color */
+  border-radius: 10px; /* Add rounded corners */
   margin-bottom: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: white; /* Adjust text color for contrast */
+  overflow: hidden; /* Ensure content respects border radius */
 }
 
+/* Ensure rows remain visually distinct */
 .transaction-table {
   border-spacing: 0 15px; /* Add spacing between rows */
   width: 100%;
-  border-collapse: separate;
+  border-collapse: separate; /* Ensure rows are separated */
+  table-layout: fixed; /* Ensure consistent column widths */
+  border-spacing: 0; /* Remove spacing between cells */
+}
+
+.transaction-table thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed; /* Match the body layout */
+  margin-bottom: 15px; /* Add spacing below the header */
+}
+
+.transaction-rows-container {
+  max-height: 400px; /* Set a fixed height for the scrollable area */
+  overflow-y: auto; /* Enable vertical scrolling */
+  margin-top: 15px; /* Ensure consistent spacing */
+}
+
+.transaction-table tbody {
+  display: table;
+  width: 100%;
+  table-layout: fixed; /* Match the header layout */
 }
 
 .transaction-table tbody tr {
-  background-color: #2d2d2d; /* Floating container color */
-  color: white;
-  border-radius: 10px;
-  overflow: hidden;
+  background-color: white; /* Row background */
+  color: #252ee1; /* Text color */
+  border-radius: 10px; /* Rounded corners */
+  margin-bottom: 10px; /* Add spacing between rows */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  overflow: hidden; /* Ensure content respects border radius */
 }
 
+/* Add hover effect for rows */
+.transaction-table tbody tr:hover {
+  background-color: #f0f0f0; /* Slightly lighter shade for hover */
+  cursor: pointer;
+  transform: scale(1.02); /* Slight zoom effect */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+/* Ensure table cells have consistent padding and alignment */
 .transaction-table tbody tr td {
+  color: #252ee1; /* Ensure text color is consistent */
   padding: 15px;
   text-align: center;
+}
+
+/* Add a slight gray separation between table rows */
+.transaction-table tbody tr {
+  border-bottom: 1px solid #d3d3d3; /* Light gray border for separation */
+}
+
+.transaction-table tbody tr:last-child {
+  border-bottom: none; /* Remove border for the last row */
 }
 
 .search-bar {
@@ -145,5 +195,56 @@ tbody tr {
 .search-bar::placeholder {
   color: #aaa;
   font-style: italic;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #252ee1; /* Blue background */
+  color: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Elevated effect */
+  z-index: 1000;
+}
+
+.popup-content {
+  text-align: center;
+}
+
+.popup button {
+  background-color: white;
+  color: #252ee1;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.popup button:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+/* Apply blur only when the popup is active */
+.popup-active .personal-container {
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+/* Style for the clickable stock link in the popup */
+.stock-link {
+  color: #007bff; /* Match the theme color */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Make it stand out */
+}
+
+.stock-link:hover {
+  text-decoration: underline; /* Add underline on hover */
+  color: #0056b3; /* Darker shade for hover */
 }
 
