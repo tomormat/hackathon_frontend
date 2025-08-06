@@ -1,1 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #e5e5f7;
+  /* opacity: 1; */
+  background: radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent),
+              radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent) 80px 80px,
+              linear-gradient(#303254 6.4px, transparent 6.4px) 0 -3.2px,
+              linear-gradient(90deg, #303254 6.4px, #e5e5f7 6.4px) -3.2px 0;
+  background-size: 160px 160px, 160px 160px, 80px 80px, 80px 80px;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+
+.elevated-container {
+  background: #252ee1;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(11, 14, 49, 0.671), 0 2px 8px 0 rgba(0,0,0,0.25);
+  padding: 2rem;
+  margin: 2rem auto;
+  color: #fff;
+  max-width: 900px;
+  width: 90%;
+  opacity: 1; /* fully opaque */
+}
+
+.elevated-container2 {
+  background: #252ee1;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(11, 14, 49, 0.671), 0 2px 8px 0 rgba(0,0,0,0.25);
+  padding: 2rem;
+  margin: 2rem auto;
+  color: #fff;
+  width: 100%;
+  max-width: 97vw;
+  opacity: 1; /* fully opaque */
+}
+
+.elevated-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.elevated-container table th,
+.elevated-container table td {
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #000;
+}
+
+.elevated-container table th {
+  background: #f4f4f4;
+  font-weight: bold;
+}

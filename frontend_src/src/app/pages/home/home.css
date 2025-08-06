@@ -1,0 +1,188 @@
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;  
+    border-radius: 20px; /* Add rounded edges to the header */
+    background: #252ee1;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.55), 0 2px 8px rgba(0, 0, 0, 0.25);
+    color: white;
+    margin-top: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+body {
+    height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3.5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.content-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 50px;
+    gap: 50px;
+    height: 85vh;
+}
+
+.search-container {
+    flex: 1;
+    width: 55%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.stock-container {
+    flex: 1;
+    width: 95%;
+    
+}
+
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column; 
+        gap: 20px; 
+    }
+
+    .search-container, .stock-container {
+        width: 100%; 
+        margin-left: 0; 
+        margin-right: 0; 
+    }
+}
+
+h2 {
+    text-align: left;
+    font-size: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* ----- Looking at your stocks ------------ */
+.stock-box {
+    position: relative;
+    width: 100%; 
+    height: auto; 
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    margin-top: 10px; 
+    padding: 20px; 
+}
+
+.stock-table {
+    width: 100%; 
+    border-collapse: collapse; 
+}
+
+.stock-table th, .stock-table td {
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    text-align: left; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    color: black;
+}
+
+.stock-table th {
+    background-color:  #c5deef;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.transaction-history-button {
+    position: absolute; 
+    top: -60px; 
+    right: 10px; 
+    background-color: #007bff;
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 15px; 
+    cursor: pointer; 
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.transaction-history-button:hover {
+    background-color: #0056b3; 
+}
+
+@media (max-width: 1296px) {
+    .transaction-history-button {
+        position: static;
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ----- Searching Stocks ------------ */
+
+.search-bar-wrapper {
+    position: relative; 
+    width: 80%; 
+    margin-top: 10px;
+    align-items: right;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 10px; 
+    font-size: 20px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+
+.search-results {
+    margin-top: 20px;
+    padding: 10px;
+    background-color:  #252ee1;
+    
+}
+
+.results-container {
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 10px; 
+    margin-top: 10px;
+}
+
+.result-box {
+    background-color: #c5deef;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border: none; 
+    border-radius: 10px; 
+    font-size: 20px;
+}
+
+.result-box:hover {
+    background-color: #90c7eb; 
+}
+
+.footer {
+    background-color: #c5deef;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 1rem;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px; 
+}

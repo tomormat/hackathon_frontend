@@ -1,18 +1,61 @@
+<header>
+  <app-global-header title="Transaction History"></app-global-header>
+</header>
 
 <div class="personal-container">
   <div class="top-bar">
-    <button class="nav-button">Transaction History</button>
-    <button class="nav-button">HOME</button>
+    <input 
+      type="text" 
+      class="search-bar" 
+      placeholder="Search stocks..." 
+      [(ngModel)]="searchTerm" 
+      (input)="filterStocks()" 
+    />
   </div>
 
   <div class="transactions-box">
-    <div class="transaction-list">
-      <div class="transaction">TRAN ID STOCK DATE VALUE_AT_Date value_change%</div>
-      <div class="transaction">TRAN ID STOCK DATE VALUE_AT_Date value_change%</div>
-      <div class="transaction">TRAN ID STOCK DATE VALUE_AT_Date value_change%</div>
-      <div class="transaction">TRAN ID STOCK DATE VALUE_AT_Date value_change%</div>
-      <!-- Add more if needed -->
+    <table class="transaction-table">
+      <thead>
+        <tr>
+          <th (click)="sortData('id')">TRAN ID <span [class]="getSortClass('id')"></span></th>
+          <th (click)="sortData('stock.name')">STOCK <span [class]="getSortClass('stock.name')"></span></th>
+          <th (click)="sortData('date')">DATE <span [class]="getSortClass('date')"></span></th>
+          <th (click)="sortData('valueAtDate')">VALUE AT Date <span [class]="getSortClass('valueAtDate')"></span></th>
+          <th (click)="sortData('currentValue')">CURRENT VALUE <span [class]="getSortClass('currentValue')"></span></th>
+          <th (click)="sortData('valueChangePercent')">VALUE CHANGE % <span [class]="getSortClass('valueChangePercent')"></span></th>
+          <th (click)="sortData('type')">TYPE <span [class]="getSortClass('type')"></span></th>
+        </tr>
+      </thead>
+    </table>
+    <div class="transaction-rows-container">
+      <table class="transaction-table">
+        <tbody>
+          <tr *ngFor="let t of filteredTransactions" (click)="showTransactionDetails(t)" class="clickable-row">
+            <td>{{ t.id }}</td>
+            <td>{{ t.stock.name }}</td>
+            <td>{{ t.date | date:'yyyy-MM-dd HH:mm' }}</td>
+            <td>{{ t.valueAtDate | number:'1.2-2' }}</td>
+            <td>{{ t.currentValue | number:'1.2-2' }}</td>
+            <td [ngClass]="{'green-text': t.valueChangePercent > 0, 'red-text': t.valueChangePercent < 0}">{{ t.valueChangePercent | number:'1.2-2' }}%</td>
+            <td [ngClass]="{'buy-transaction': t.type === 'buy', 'sell-transaction': t.type === 'sell'}">{{ t.type | titlecase }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
+
+<div *ngIf="selectedTransaction" class="popup">
+  <div class="popup-content">
+    <h2>Transaction Details</h2>
+    <p><strong>ID:</strong> {{ selectedTransaction.id }}</p>
+    <p><strong>Stock:</strong> <a [routerLink]="['/personal', selectedTransaction.stock.id]" class="stock-link">{{ selectedTransaction.stock.name }}</a></p>
+    <p><strong>Date:</strong> {{ selectedTransaction.date | date:'yyyy-MM-dd HH:mm' }}</p>
+    <p><strong>Value at Date:</strong> {{ selectedTransaction.valueAtDate | number:'1.2-2' }}</p>
+    <p><strong>Value Change Percent:</strong> {{ selectedTransaction.valueChangePercent | number:'1.2-2' }}%</p>
+    <button (click)="closePopup()">Close</button>
+  </div>
+</div>
+
+<app-global-footer></app-global-footer>
 
