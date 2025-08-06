@@ -108,7 +108,7 @@ export class Personal implements OnInit {
           {
             label: `Max Price (at ${maxPriceTime})`, // Dashed line for maximum price
             data: Array(this.stockPrices.length).fill(maxPrice),
-            borderColor: '#00ff00',
+            borderColor: '#008000',
             borderDash: [5, 5], // Dashed line
             fill: false,
           },
@@ -137,6 +137,7 @@ export class Personal implements OnInit {
             title: {
               display: true,
               text: 'Time',
+              color: 'black',
               font: {
                 size: 20
               }
@@ -151,8 +152,10 @@ export class Personal implements OnInit {
             title: {
               display: true,
               text: 'Price (GBP)',
+              color: 'black',
               font: {
                 size: 20
+                
               }
             },
             ticks: {
