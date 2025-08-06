@@ -1,8 +1,11 @@
 .personal-container {
   background-color: #ffffff;
-  height: 100%;
   padding: 2rem;
   box-sizing: border-box;
+  height:85vh;
+}
+body {
+  height: 100vh;
 }
 
 .top-bar {
