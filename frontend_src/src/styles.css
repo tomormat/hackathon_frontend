@@ -29,6 +29,18 @@ body {
   opacity: 1; /* fully opaque */
 }
 
+.elevated-container2 {
+  background: #252ee1;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(11, 14, 49, 0.671), 0 2px 8px 0 rgba(0,0,0,0.25);
+  padding: 2rem;
+  margin: 2rem auto;
+  color: #fff;
+  width: 100%;
+  max-width: 1500px;
+  opacity: 1; /* fully opaque */
+}
+
 .elevated-container table {
   width: 100%;
   border-collapse: collapse;
