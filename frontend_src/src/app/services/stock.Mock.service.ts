@@ -42,6 +42,7 @@ export class StockService {
   /// THESE REQUESTS ARE FOR THE API NOT THE MOCK DATA
 
   makeOrder(orderData: { tickerSymbol: string; orderAction: 'BUY' | 'SELL'; dollarAmount: number; executionDateTime: string }): Observable<any> {
+    console.log('[MockService] makeOrder called with:', orderData);
     // Simulate placing an order against local JSON data
     // Find the stock object
     const stockObj = this.getStockByName(orderData.tickerSymbol);
