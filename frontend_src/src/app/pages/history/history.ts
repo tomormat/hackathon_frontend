@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [RouterModule, CommonModule, GlobalHeader, GlobalFooter, FormsModule],
   templateUrl: './history.html',
-  styleUrls: ['./history.css']
+  styleUrl: './history.css'
 })
 export class History implements OnInit {
   transactions: Transaction[] = [];
