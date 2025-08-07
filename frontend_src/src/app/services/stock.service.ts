@@ -40,7 +40,7 @@ export class StockService {
 
   getTransactions(): Observable<Transaction[]> {
     // Fetch transaction list from real API, fallback to local mock JSON on error
-    return this.http.get<Transaction[]>(`${environment.apiUrl}/transactions`).pipe(
+    return this.http.get<Transaction[]>(`${environment.apiUrl}/order/history`).pipe(
       catchError(() => this.http.get<Transaction[]>('assets/mock-transactions.json'))
     );
   }
