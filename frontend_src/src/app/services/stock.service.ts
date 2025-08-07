@@ -17,12 +17,24 @@ export class StockService {
     return this.http.get<Stock>(`${this.apiUrl}/stocks/${id}`);
   }
 
-  // 2. Post a transaction (buy stock)
-  buyStock(stock: Stock, amount: number): Observable<Transaction> {
-    return this.http.post<Transaction>(`${this.apiUrl}/transactions`, {
-      stock,
-      amount
-    });
+  // 2. Get all portfolio stocks
+  getPortfolio(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/stocks/getall`);
+  }
+
+  // 3. Get real-time stock information by ticker symbol
+  getStockInfo(tickerSymbol: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/stocks/getstockinfo/${tickerSymbol}`);
+  }
+
+  // 4. Get transaction history (orders)
+  getOrderHistory(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/order/history`);
+  }
+
+  // 5. Place a new order (buy or sell)
+  makeOrder(orderData: { tickerSymbol: string; orderAction: 'BUY' | 'SELL'; dollarAmount: number; executionDateTime: string }): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/order/makeorder`, orderData);
   }
 
   // 3. Get all transactions for the user

@@ -41,6 +41,24 @@ export class StockService {
 
   /// THESE REQUESTS ARE FOR THE API NOT THE MOCK DATA
 
-
+  makeOrder(orderData: { tickerSymbol: string; orderAction: 'BUY' | 'SELL'; dollarAmount: number; executionDateTime: string }): Observable<any> {
+    // Simulate placing an order against local JSON data
+    // Find the stock object
+    const stockObj = this.getStockByName(orderData.tickerSymbol);
+    // Create a new transaction record
+    const newTransaction: Transaction = {
+      id: this.transactions.length + 1,
+      stock: stockObj || { id: -1, name: orderData.tickerSymbol, price: 0 },
+      amount: orderData.dollarAmount / (stockObj?.price || 1),
+      date: orderData.executionDateTime,
+      valueAtDate: orderData.dollarAmount,
+      currentValue: orderData.dollarAmount,
+      type: orderData.orderAction.toLowerCase() as 'buy' | 'sell'
+    };
+    // Update in-memory transactions
+    this.transactions.push(newTransaction);
+    // Return a successful response
+    return of({ message: 'Order was successful', transaction: newTransaction });
+  }
 
 }

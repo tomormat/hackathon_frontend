@@ -55,14 +55,14 @@
 
       <div class="buy-sell">
         <div class="action-buttons">
-          <button class="sell">Sell</button>
+          <button class="sell" (click)="sellStock()">Sell</button>
           <input class = "buy-amount"
             type="number"
             min="1"
             [(ngModel)]="buyAmount"
             placeholder="Amount"
           />
-          <button class="buy">Buy</button>
+          <button class="buy" (click)="buyStock()">Buy</button>
         </div>
         <button class="total-button" disabled>
           Total: {{ totalPrice | number:'1.2-2' }}

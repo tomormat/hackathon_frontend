@@ -190,4 +190,33 @@ export class Personal implements OnInit {
     if (originalValue === 0) return 0;
     return ((newValue - originalValue) / originalValue) * 100;
   }
+
+  buyStock(): void {
+    if (!this.stock || this.buyAmount <= 0 || this.currentPrice == null) return;
+    const orderData = {
+      tickerSymbol: this.stock.name,
+      orderAction: 'BUY' as 'BUY',
+      dollarAmount: this.buyAmount * this.currentPrice,
+      executionDateTime: new Date().toISOString()
+    };
+    this.stockService.makeOrder(orderData).subscribe({
+      next: response => console.log('Buy order successful:', response),
+      error: err => console.error('Error placing buy order:', err)
+    });
+  }
+
+  sellStock(): void {
+    if (!this.stock || this.buyAmount <= 0 || this.currentPrice == null) return;
+    const orderData = {
+      tickerSymbol: this.stock.name,
+      orderAction: 'SELL' as 'SELL',
+      dollarAmount: this.buyAmount * this.currentPrice,
+      executionDateTime: new Date().toISOString()
+    };
+    this.stockService.makeOrder(orderData).subscribe({
+      next: response => console.log('Sell order successful:', response),
+      error: err => console.error('Error placing sell order:', err)
+    });
+  }
+
 }
