@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StockService } from '../../services/stock.Mock.service';
 import { RouterModule } from '@angular/router';
-import { Stock } from '../../interfaces/stock'; 
+import { Stock, Transaction, TransactionWithChange } from '../../interfaces/stock'; 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -32,6 +32,8 @@ export class Personal implements OnInit {
   percentChange: number | null = null;
   numberOfShares: number = 0;
   totalShareValue: number = 0;
+  transactions: TransactionWithChange[] = [];
+  filteredTransactions: TransactionWithChange[] = [];
 
   constructor(private route: ActivatedRoute, private stockService: StockService) {}
 
@@ -63,6 +65,24 @@ export class Personal implements OnInit {
         // this is the price graph 
         this.renderGraph();
       }
+    }
+
+    const stockId = this.route.snapshot.paramMap.get('id');
+    if (stockId) {
+        this.stockService.getTransactions().subscribe((data: Transaction[]) => {
+            this.transactions = data
+                .filter(transaction => transaction.stock.id === Number(stockId))
+                .map(transaction => {
+                    const currentValue = transaction.currentValue !== undefined ? transaction.currentValue : transaction.valueAtDate;
+                    const valueChangePercent = this.calculateValueChangePercent(transaction.valueAtDate, currentValue);
+                    return {
+                        ...transaction,
+                        currentValue,
+                        valueChangePercent
+                    };
+                });
+            this.filteredTransactions = [...this.transactions];
+        });
     }
   }
 
@@ -168,4 +188,38 @@ export class Personal implements OnInit {
       }
     });
   }
+
+  private calculateValueChangePercent(originalValue: number, newValue: number): number {
+    if (originalValue === 0) return 0;
+    return ((newValue - originalValue) / originalValue) * 100;
+  }
+
+  buyStock(): void {
+    if (!this.stock || this.buyAmount <= 0 || this.currentPrice == null) return;
+    const orderData = {
+      tickerSymbol: this.stock.name,
+      orderAction: 'BUY' as 'BUY',
+      dollarAmount: this.buyAmount * this.currentPrice,
+      executionDateTime: new Date().toISOString()
+    };
+    this.stockService.makeOrder(orderData).subscribe({
+      next: response => console.log('Buy order successful:', response),
+      error: err => console.error('Error placing buy order:', err)
+    });
+  }
+
+  sellStock(): void {
+    if (!this.stock || this.buyAmount <= 0 || this.currentPrice == null) return;
+    const orderData = {
+      tickerSymbol: this.stock.name,
+      orderAction: 'SELL' as 'SELL',
+      dollarAmount: this.buyAmount * this.currentPrice,
+      executionDateTime: new Date().toISOString()
+    };
+    this.stockService.makeOrder(orderData).subscribe({
+      next: response => console.log('Sell order successful:', response),
+      error: err => console.error('Error placing sell order:', err)
+    });
+  }
+
 }

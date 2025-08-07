@@ -43,7 +43,7 @@
     <!-- Info Panel + Buy/Sell -->
     <div class="info-panel">
       <div class="stock-info">
-        <h2 style="color:black;">Your {{ stockName }} Shares</h2>
+        <h2 style="color:white;">Your {{ stockName }} Shares</h2>
         <div style="display:flex; flex-direction: row;">
           
           <div class="info-box">
@@ -61,14 +61,14 @@
 
       <div class="buy-sell">
         <div class="action-buttons">
-          <button class="sell">Sell</button>
+          <button class="sell" (click)="sellStock()">Sell</button>
           <input class = "buy-amount"
             type="number"
             min="1"
             [(ngModel)]="buyAmount"
             placeholder="Amount"
           />
-          <button class="buy">Buy</button>
+          <button class="buy" (click)="buyStock()">Buy</button>
         </div>
         <button class="total-button" disabled>
           Total: {{ totalPrice | number:'1.2-2' }}
