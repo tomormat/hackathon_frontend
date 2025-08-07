@@ -64,7 +64,7 @@ h1 {
 .content-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .text-info {
@@ -221,21 +221,17 @@ input[type="text"] {
 
 .graph-box {
   width: 100%;
-  height: 400px;
   position: relative;
   z-index: 1;
-}
-
-.graph-box {
   background-color: #ffffff;
   border-radius: 25px;
   padding: 1rem;
-  display: flex;
+  display: inline-block;
   flex-direction: column;
   justify-content: space-between;
-  height: 400px;
-  width:100%;
+  height: auto;
   margin-top: 60px;
+  align-items: center;
 }
 
 canvas {
