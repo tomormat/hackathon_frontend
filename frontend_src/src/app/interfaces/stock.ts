@@ -20,3 +20,9 @@ export interface Transaction {
 export interface TransactionWithChange extends Transaction {
     valueChangePercent: number;
 }
+// Real-time stock information returned by the backend
+export interface StockInfo {
+    tickerSymbol: string;
+    currentPrice: number;
+    timeUpdated: string;
+}

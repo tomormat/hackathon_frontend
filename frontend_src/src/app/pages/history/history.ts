@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { StockService } from '../../services/stock.Mock.service';
+import { StockService } from '../../services/stock.service';
 import { Transaction, TransactionWithChange } from '../../interfaces/stock';
 import { CommonModule } from '@angular/common';
 import { GlobalHeader } from '../../components/global-header/global-header';
