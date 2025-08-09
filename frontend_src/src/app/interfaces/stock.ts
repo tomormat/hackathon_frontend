@@ -8,7 +8,7 @@ export interface Stock {
 }
 
 export interface Transaction {
-    id: number;
+    orderID: number;
     stock: Stock;
     amount: number;
     date: string; // or Date

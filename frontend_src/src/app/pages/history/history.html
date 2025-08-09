@@ -31,7 +31,7 @@
       <table class="transaction-table">
         <tbody>
           <tr *ngFor="let t of filteredTransactions" (click)="showTransactionDetails(t)" class="clickable-row">
-            <td>{{ t.id }}</td>
+            <td>{{ t.orderID }}</td>
             <td>{{ t.stock.name }}</td>
             <td>{{ t.date | date:'yyyy-MM-dd HH:mm' }}</td>
             <td>{{ t.valueAtDate | number:'1.2-2' }}</td>
@@ -48,7 +48,7 @@
 <div *ngIf="selectedTransaction" class="popup">
   <div class="popup-content">
     <h2>Transaction Details</h2>
-    <p><strong>ID:</strong> {{ selectedTransaction.id }}</p>
+    <p><strong>ID:</strong> {{ selectedTransaction.orderID }}</p>
     <p><strong>Stock:</strong> <a [routerLink]="['/personal', selectedTransaction.stock.id]" class="stock-link">{{ selectedTransaction.stock.name }}</a></p>
     <p><strong>Date:</strong> {{ selectedTransaction.date | date:'yyyy-MM-dd HH:mm' }}</p>
     <p><strong>Value at Date:</strong> {{ selectedTransaction.valueAtDate | number:'1.2-2' }}</p>
